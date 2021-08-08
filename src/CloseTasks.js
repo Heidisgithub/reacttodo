@@ -6,12 +6,22 @@ class CloseTasks extends React.Component {
     return (
       <div className="doneContainer">
         <div className="containerTitle">
-        <h3>Closed</h3></div>
-        <div className="tasks">
+          <h3>Closed</h3>
+        </div>
+        <div className="tasks doneTasks" id="doneTasks">
           <ul>
             {closeTasks.map((task, index) => {
                 return (
-                  <li key={"task"+index}>{task.title}</li>
+                  <li className="taskItem done" key={"task"+index}>
+                    <label className="container taskCheck">
+                      <input type="checkbox" checked />
+                      {task.title}
+                      <span className="checkmark"></span>
+                    </label>
+                    <div className="buttons">
+                      <div type="button" value="Delete" className="icon delete"></div>
+                    </div>
+                  </li>
                 )
               })
             }
